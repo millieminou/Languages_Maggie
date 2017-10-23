@@ -1,8 +1,18 @@
-PImage[] myImageArray = new PImage[5];
+//"Hell"
+//by Maggie Brennan
+//Midterm Assignment for 
+//"Languages" @ Pratt 
+//with Allison Berkoy
 
-PImage[] myImageArraytest = new PImage[3];
 
+//arrays
+PImage[] photos = new PImage[5];
+PImage[] statuses = new PImage[3];
+
+//strings
 String state = "hell";
+
+//image variables
 PImage img;
 float x;
 float y;
@@ -19,14 +29,14 @@ float r4 = 220;
 float g4 = 220;
 float b4 = 220;
 
-//timers//
-int timer1=4000; 
+//timers
+int timer1=3000; 
 int timer2= 8000;
 int timer3= 11000;
 int timer4= 14000;
 int timer5= 17000;
 int timer6= 20000;
-int timer7= 22000;
+int timer7= 22500;
 int timer8 = 300000;
 int currentTime=0; 
 int restart=0;
@@ -38,82 +48,70 @@ void setup() {
   x=0;
   y=0;
   
-  ////
-   for (int i=0; i<myImageArray.length; i++) {
-    myImageArray[i] = loadImage( "frag" + i + ".jpg");
+  
+   for (int i=0; i<photos.length; i++) {
+    photos[i] = loadImage( "pic" + i + ".jpg");
   }
-  ////test
-  for (int i=0; i<myImageArraytest.length; i++) {
-    myImageArraytest[i] = loadImage( "status" + i + ".jpg");
+
+  for (int i=0; i<statuses.length; i++) {
+    statuses[i] = loadImage( "status" + i + ".jpg");
   }
   
 }
 
+
 void draw() {
 currentTime=millis();
     
-//////////////PREGAME//////////////////////////
+/////////////////////PREGAME//////////////////////////
 if (state == "hell"){
    background(0);
    text("Click to enter hell.", width/2, height/2);
    restart = currentTime;
   }
-////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 
-////////////////INTRO///////////////////////////////
+/////////////////////INTRO////////////////////////////
   else if (state == "intro") {
-    img = loadImage ("firstscreen_test.jpg");
-    image(img, x, y);
-     if (currentTime-restart>timer1){
-     img = loadImage ("firstscreen_test.jpg");
-     image(img, x,y);
-     y = y-10;
-    println("timer 1 is triggered");
+      img = loadImage ("firstscreen_test.jpg");
+      image(img, x, y);
+    if (currentTime-restart>timer1){
+      img = loadImage ("firstscreen_test.jpg");
+      image(img, x,y);
+       y = y-10;
+       println("timer 1 is triggered");
     if (currentTime-restart>timer2){
-      img=loadImage("comment.jpg");
-      image(img, 0, 0);
-          println("timer 2 is triggered");
+       img=loadImage("comment.jpg");
+       image(img, 0, 0);
+       println("timer 2 is triggered");
     if (currentTime-restart>timer3){
-      ///closeup of picture and name strobing
+       fill(255);
+       rect(0,0,1080,720);
+       fill(r1,g1,b1);
+       r1 = r1 + 20;
+       g1 = g1 +20;
+       b1 = b1 + 20;
+       text ("chad blad", 50, 70);
+       println("timer 3 is triggered");
+   if (currentTime-restart>timer4){
+       fill(255);
+       rect(0,0,1080,720);
+       fill(r2,g2,b2);
+       r2 = r2 -20;
+       g2 = g2 -20;
+       b2 = b2 -20;
+       text ("chad blad", 50, 70);
+       println("timer 4 is triggered");
+   if (currentTime-restart>timer5){
       fill(255);
       rect(0,0,1080,720);
-      fill(r1,g1,b1);
-      r1 = r1 + 20;
-      g1 = g1 +20;
-      b1 = b1 + 20;
-      
-    text ("chad blad", 50, 70);
-    
-        println("timer 3 is triggered");
-        
-        if (currentTime-restart>timer4){
-          fill(255);
-          
-      rect(0,0,1080,720);
-          fill(r2,g2,b2);
-          r2 = r2 -20;
-          g2 = g2 -20;
-          b2 = b2 -20;
-           text ("chad blad", 50, 70);
-        println("timer 4 is triggered");
-        
-        if (currentTime-restart>timer5){
-      ///closeup of picture and name strobing
-      fill(255);
-      rect(0,0,1080,720);
-      
       fill(r3,g3,b3);
       r3 = r3 + 20;
       g3 = g3 +20;
       b3 = b3 + 20;
-      
-    text ("chad blad", 50, 70);
-    
-        println("timer 5 is triggered");
-        
-        
-
-if (currentTime-restart>timer6){
+      text ("chad blad", 50, 70);
+      println("timer 5 is triggered");
+   if (currentTime-restart>timer6){
       ///closeup of picture and name strobing
       fill(255);
       rect(0,0,1080,720);
@@ -121,42 +119,37 @@ if (currentTime-restart>timer6){
       r4 = r4 -20;
       g4 =g4-20;
       b4 = b4 -20;
-      
-    
-    text ("chad blad", 50, 70);
-  
-       println("timer 6 is triggered");
-
-if (currentTime-restart>timer7){
-      ///closeup of picture and name strobing
+      text ("chad blad", 50, 70);
+      println("timer 6 is triggered");
+   if (currentTime-restart>timer7){
       fill(255);
       rect(0,0,1080,720);
       fill(0);
-    text ("chad blad", 50, 70);
-    fill(214,152, 152, 50);
-    noStroke();
-    ellipse (80,70, 100, 50);
-       println("timer 7 is triggered");
+      text ("chad blad", 50, 70);
+      fill(214,152, 152, 50);
+      noStroke();
+      ellipse (80,70, 100, 50);
+      println("timer 7 is triggered");
+//////////////////////////////////////////////////////         
          
-//////////////////////END TIMER///////////////////
+////////////////////ENDGAME & TIMER///////////////////
     if (currentTime-restart>timer8){
       background(0);
       text ("Why are you doing this to yourself? Go outside or something.", width/2, height/2+100);
           println("timer 8 is triggered");
     }
-     } 
+    } 
     }
-        }
-     }
-     }
-     }
-     }
-  }
-////////////////////////////////////////  
+    }
+    }
+    }
+    }
+    }
+    }
+//////////////////////////////////////////////////////  
 
-///////////////PROFILE/////////////////////
+/////////////////////PROFILE//////////////////////////
   else if (state == "profile"){
-   
     background(255);
     fill(#34d5c4);
     rect(40,40,40,40);//photos
@@ -164,37 +157,37 @@ if (currentTime-restart>timer7){
     rect(160,40,40,40); //statuses
     text("this is my profile", width/2, height/2 + 100);
   }
-///////////////////////////////////////////  
+/////////////////////////////////////////////////////  
 
-////////////PHOTOS////////////////////
+/////////////////////PHOTOS//////////////////////////
   else if (state == "photos"){
-    background(255);
-        fill(#34d5c4);
-   rect(40,40,40,40); //back button test
-   img =loadImage("frag0.jpg");
+   background(255);
+   fill(#34d5c4);
+   rect(40,40,40,40); //back button 
+   img =loadImage("pic0.jpg");
    image(img,width/2-50, height/2-50, 100, 100);
   }
-///////////////////////////////////////
+/////////////////////////////////////////////////////
 
 
-///////////ABOUT/////////////////
+/////////////////////ABOUT//////////////////////////
   else if (state == "about"){
     background(255);
-        fill(#34d5c4);
+    fill(#34d5c4);
     text("my names chad", width/2, height/2 + 100);
-    rect(40,40,40,40); //back button test
-
+    rect(40,40,40,40); //back button 
   }
-/////////////////////////////////
+///////////////////////////////////////////////////
 
-///////////STATUSES/////////////////
+////////////////////STATUSES//////////////////////
   else if (state == "statuses"){
     background(255);
-        fill(#34d5c4);
+    fill(#34d5c4);
     text("my mind is a castle", width/2, height/2 + 100);
-    rect(40,40,40,40); //back button test
+    rect(40,40,40,40); //back button 
   }
-////////////////////////////////////
+///////////////////////////////////////////////////
+
 }
 
 
@@ -202,22 +195,22 @@ if (currentTime-restart>timer7){
 
 
 
-/////////MOUSE CLICKS///////////////
+////////////////////MOUSE CLICKS////////////////////
 void mousePressed(){
   
-////////INTRO CLICK///////  
+////////////////////INTRO CLICK////////////////////  
 if (state == "hell"){
   state = "intro";
 }
-///////////////////////////
+///////////////////////////////////////////////////
 
-/////CLICK TO PROFILE/////
+/////////////////CLICK TO PROFILE/////////////////
 else if (state == "intro"){
   state = "profile";
 }
-////////////////////////////
+///////////////////////////////////////////////////
 
-////////MAIN PROFILE CLICKS/////////
+//////////////MAIN PROFILE CLICKS/////////////////
 else if ((state == "profile")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
 state = "photos";
 }
@@ -229,60 +222,58 @@ state = "about";
 else if ((state == "profile")&&(mouseX>160 && mouseX<200 && mouseY>40 && mouseY<80)){
 state = "statuses";
 }
-//////////////////////////////////
+///////////////////////////////////////////////////
 
 
-//////////PHOTOS CLICKS///////////
-//backbutton
+////////////////////PHOTOS CLICKS//////////////////
+//back button
 else if ((state == "photos")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
 state = "profile";
-
 }
-//pics
 
+//random pics
 else if ((state == "photos")&&(mouseX>80 && mouseY>80)){
   state = "randompics";
 }
-
 else if((state == "randompics")&&(mouseX>80 &&mouseY>80)){
-  image(myImageArray[(int)random(5)], width/2-50, height/2-50, 100, 100);
+  image(photos[(int)random(5)], width/2-50, height/2-50, 100, 100);
 }
 
-//backbutton
+//back button after activating pics
 else if((state == "randompics")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
 state = "profile";
 }
-//////////////////////////////////
+///////////////////////////////////////////////////
 
 
-///////////STATUS CLICKS//////////
-///back button
+////////////////STATUS CLICKS/////////////////////
+//back button
 else if ((state == "statuses")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
 state = "profile";
 }
 
-
+//random statuses
 else if ((state == "statuses")&&(mouseX>80 && mouseY>80)){
   state = "randomstatus";
 }
-
 else if((state == "randomstatus")&&(mouseX>80 &&mouseY>80)){
-  image(myImageArraytest[(int)random(3)], width/2-50, height/2-50, 100, 100);
+  image(statuses[(int)random(3)], width/2-50, height/2-50, 100, 100);
 }
 
-//backbutton
+//back button after statuses activated
 else if((state == "randomstatus")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
 state = "profile";
 }
-///////////////////////////////////
+///////////////////////////////////////////////////
 
 
-///////////ABOUT CLICKS///////////////////
-///back button
+////////////////ABOUT CLICKS//////////////////////
+//back button
 else if ((state == "about")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
 state = "profile";
 }
-///////////////////////////////////
+//////////////////////////////////////////////////
 
-/////////END OF MOUSE CLICKS////////////////////////////
+
+/////////END OF MOUSE CLICKS//////////////////////
 }
