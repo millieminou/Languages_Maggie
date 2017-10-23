@@ -4,6 +4,9 @@
 //"Languages" @ Pratt 
 //with Allison Berkoy
 
+import processing.sound.*;
+
+SoundFile song;
 
 //arrays
 PImage[] photos = new PImage[5];
@@ -42,9 +45,13 @@ int currentTime=0;
 int restart=0;
 
 
-void setup() {
+void setup() {  
   background(0);
   size (1080, 720);
+  
+  song = new SoundFile(this, "mildundleise.mp3");
+  song.loop();
+  
   x=0;
   y=0;
   
