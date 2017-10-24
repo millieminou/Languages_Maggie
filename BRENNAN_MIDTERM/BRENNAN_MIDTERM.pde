@@ -150,7 +150,7 @@ if (state == "hell"){
 ////////////////////ENDGAME & TIMER///////////////////
     if (currentTime-restart>timer8){
       background(0);
-      text ("Why are you doing this to yourself? Go outside or something.", width/2, height/2+100);
+      text ("Why are you doing this to yourself? Go outside or something.", width/2, height/2);
           println("timer 8 is triggered");
     }
     } 
@@ -166,13 +166,8 @@ if (state == "hell"){
 /////////////////////PROFILE//////////////////////////
   else if (state == "profile"){
     ///add profile 
-    img=loadImage("closeup.jpg"); 
+    img=loadImage("profile.jpg"); 
     image(img,0,0);
-    noStroke();
-    fill(#e8c7ff);
-    rect(40,40,40,40);//photos
-    rect(100,40,40,40);//about
-    rect(160,40,40,40); //statuses
   }
 /////////////////////////////////////////////////////  
 
@@ -222,16 +217,20 @@ else if (state == "intro"){
 ///////////////////////////////////////////////////
 
 //////////////MAIN PROFILE CLICKS/////////////////
-else if ((state == "profile")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
+else if ((state == "profile")&&(mouseX>626.5 && mouseX<783.2 && mouseY>488 && mouseY<580)){
 state = "photos";
 }
 
-else if ((state == "profile")&&(mouseX>100 && mouseX<140 && mouseY>40 && mouseY<80)){
+else if ((state == "profile")&&(mouseX>444 && mouseX<600 && mouseY>488 && mouseY<580)){
 state = "about";
 }
 
-else if ((state == "profile")&&(mouseX>160 && mouseX<200 && mouseY>40 && mouseY<80)){
+else if ((state == "profile")&&(mouseX>815 && mouseX<970 && mouseY>488 && mouseY<580)){
 state = "statuses";
+}
+
+else if ((state == "profile")&&(mouseX>11 && mouseX<24.5 && mouseY>15.5 && mouseY<30.5)){
+  state = "hell";
 }
 ///////////////////////////////////////////////////
 
