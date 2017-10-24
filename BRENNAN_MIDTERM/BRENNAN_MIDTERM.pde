@@ -4,19 +4,20 @@
 //"Languages" @ Pratt 
 //with Allison Berkoy
 
+//sound
 import processing.sound.*;
-
 SoundFile song;
 
 //arrays
 PImage[] photos = new PImage[5];
-PImage[] statuses = new PImage[3];
+PImage[] statuses = new PImage[5];
 
 //strings
 String state = "hell";
 
 //image variables
 PImage img;
+PFont font;
 float x;
 float y;
 float r1 = 0;
@@ -34,12 +35,12 @@ float b4 = 220;
 
 //timers
 int timer1=3000; 
-int timer2= 8000;
-int timer3= 11000;
-int timer4= 14000;
-int timer5= 17000;
-int timer6= 20000;
-int timer7= 22500;
+int timer2= 9000;
+int timer3= 16500;
+int timer4= 18500;
+int timer5= 20500;
+int timer6= 23000;
+int timer7= 25000;
 int timer8 = 300000;
 int currentTime=0; 
 int restart=0;
@@ -48,6 +49,8 @@ int restart=0;
 void setup() {  
   background(0);
   size (1080, 720);
+  font = loadFont("Futura-Medium-48.vlw");
+  textFont(font);
   
   song = new SoundFile(this, "mildundleise.mp3");
   song.loop();
@@ -73,69 +76,74 @@ currentTime=millis();
 /////////////////////PREGAME//////////////////////////
 if (state == "hell"){
    background(0);
-   text("Click to enter hell.", width/2, height/2);
+   fill(#e8c7ff);
+   text("Click to enter hell.", 357, height/2);
    restart = currentTime;
   }
 //////////////////////////////////////////////////////
 
 /////////////////////INTRO////////////////////////////
   else if (state == "intro") {
-      img = loadImage ("firstscreen_test.jpg");
+      img = loadImage ("firstscreen1.jpg");
       image(img, x, y);
     if (currentTime-restart>timer1){
-      img = loadImage ("firstscreen_test.jpg");
+      img = loadImage ("firstscreen1.jpg");
       image(img, x,y);
        y = y-10;
        println("timer 1 is triggered");
     if (currentTime-restart>timer2){
-       img=loadImage("comment.jpg");
+       img=loadImage("comment1.jpg");
        image(img, 0, 0);
        println("timer 2 is triggered");
     if (currentTime-restart>timer3){
-       fill(255);
-       rect(0,0,1080,720);
+       img=loadImage("closeup.jpg");
+       image(img,0,0);
+       textSize(58);
        fill(r1,g1,b1);
        r1 = r1 + 20;
        g1 = g1 +20;
        b1 = b1 + 20;
-       text ("chad blad", 50, 70);
+       text ("CHAD JONES", 347.4, 233.8);
        println("timer 3 is triggered");
    if (currentTime-restart>timer4){
-       fill(255);
-       rect(0,0,1080,720);
+       img=loadImage("closeup.jpg");
+       image(img,0,0);
+       textSize(58);
        fill(r2,g2,b2);
        r2 = r2 -20;
        g2 = g2 -20;
        b2 = b2 -20;
-       text ("chad blad", 50, 70);
+       text ("CHAD JONES", 347.4, 233.8);
        println("timer 4 is triggered");
    if (currentTime-restart>timer5){
-      fill(255);
-      rect(0,0,1080,720);
+      img=loadImage("closeup.jpg");
+      image(img,0,0);
+      textSize(58);
       fill(r3,g3,b3);
       r3 = r3 + 20;
       g3 = g3 +20;
       b3 = b3 + 20;
-      text ("chad blad", 50, 70);
+      text ("CHAD JONES", 347.4, 233.8);
       println("timer 5 is triggered");
    if (currentTime-restart>timer6){
-      ///closeup of picture and name strobing
-      fill(255);
-      rect(0,0,1080,720);
+      img=loadImage("closeup.jpg");
+      image(img,0,0);
+      textSize(58);
       fill(r4,g4,b2);
       r4 = r4 -20;
       g4 =g4-20;
       b4 = b4 -20;
-      text ("chad blad", 50, 70);
+      text ("CHAD JONES", 347.4, 233.8);
       println("timer 6 is triggered");
    if (currentTime-restart>timer7){
-      fill(255);
-      rect(0,0,1080,720);
+      img=loadImage("closeup.jpg");
+      image(img,0,0);
+      textSize(58);
       fill(0);
-      text ("chad blad", 50, 70);
+      text ("CHAD JONES", 347.4, 233.8);
       fill(214,152, 152, 50);
       noStroke();
-      ellipse (80,70, 100, 50);
+      ellipse (550,210.5, 524, 140);
       println("timer 7 is triggered");
 //////////////////////////////////////////////////////         
          
@@ -157,41 +165,37 @@ if (state == "hell"){
 
 /////////////////////PROFILE//////////////////////////
   else if (state == "profile"){
-    background(255);
-    fill(#34d5c4);
+    ///add profile 
+    img=loadImage("closeup.jpg"); 
+    image(img,0,0);
+    noStroke();
+    fill(#e8c7ff);
     rect(40,40,40,40);//photos
     rect(100,40,40,40);//about
     rect(160,40,40,40); //statuses
-    text("this is my profile", width/2, height/2 + 100);
   }
 /////////////////////////////////////////////////////  
 
 /////////////////////PHOTOS//////////////////////////
   else if (state == "photos"){
-   background(255);
+   img=loadImage("photosmainpage.jpg"); 
+   image(img,0,0);
    fill(#34d5c4);
-   rect(40,40,40,40); //back button 
-   img =loadImage("pic0.jpg");
-   image(img,width/2-50, height/2-50, 100, 100);
   }
 /////////////////////////////////////////////////////
 
 
 /////////////////////ABOUT//////////////////////////
   else if (state == "about"){
-    background(255);
-    fill(#34d5c4);
-    text("my names chad", width/2, height/2 + 100);
-    rect(40,40,40,40); //back button 
+    img=loadImage("aboutpage.jpg"); 
+    image(img,0,0);
   }
 ///////////////////////////////////////////////////
 
 ////////////////////STATUSES//////////////////////
   else if (state == "statuses"){
-    background(255);
-    fill(#34d5c4);
-    text("my mind is a castle", width/2, height/2 + 100);
-    rect(40,40,40,40); //back button 
+ img=loadImage("statusespage.jpg"); 
+    image(img,0,0);
   }
 ///////////////////////////////////////////////////
 
@@ -234,20 +238,20 @@ state = "statuses";
 
 ////////////////////PHOTOS CLICKS//////////////////
 //back button
-else if ((state == "photos")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
+else if ((state == "photos")&&(mouseX>8 && mouseX<260 && mouseY>100 && mouseY<170)){
 state = "profile";
 }
 
 //random pics
-else if ((state == "photos")&&(mouseX>80 && mouseY>80)){
+else if ((state == "photos")&&(mouseX>350 && mouseY>200)){
   state = "randompics";
 }
-else if((state == "randompics")&&(mouseX>80 &&mouseY>80)){
-  image(photos[(int)random(5)], width/2-50, height/2-50, 100, 100);
+else if((state == "randompics")&&(mouseX>350 &&mouseY>200)){
+  image(photos[(int)random(5)], 194, 232, 691, 467);
 }
 
 //back button after activating pics
-else if((state == "randompics")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
+else if((state == "randompics")&&(mouseX>8 && mouseX<260 && mouseY>100 && mouseY<170)){
 state = "profile";
 }
 ///////////////////////////////////////////////////
@@ -255,20 +259,20 @@ state = "profile";
 
 ////////////////STATUS CLICKS/////////////////////
 //back button
-else if ((state == "statuses")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
+else if ((state == "statuses")&&(mouseX>8 && mouseX<260 && mouseY>100 && mouseY<170)){
 state = "profile";
 }
 
 //random statuses
-else if ((state == "statuses")&&(mouseX>80 && mouseY>80)){
+else if ((state == "statuses")&&(mouseX>350 && mouseY>200)){
   state = "randomstatus";
 }
-else if((state == "randomstatus")&&(mouseX>80 &&mouseY>80)){
-  image(statuses[(int)random(3)], width/2-50, height/2-50, 100, 100);
+else if((state == "randomstatus")&&(mouseX>350 &&mouseY>200)){
+  image(statuses[(int)random(5)], 195.3, 232.9, 693, 358);
 }
 
 //back button after statuses activated
-else if((state == "randomstatus")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
+else if((state == "randomstatus")&&(mouseX>8 && mouseX<260 && mouseY>100 && mouseY<170)){
 state = "profile";
 }
 ///////////////////////////////////////////////////
@@ -276,7 +280,7 @@ state = "profile";
 
 ////////////////ABOUT CLICKS//////////////////////
 //back button
-else if ((state == "about")&&(mouseX>40 && mouseX<80 && mouseY>40 && mouseY<80)){
+else if ((state == "about")&&(mouseX>8 && mouseX<260 && mouseY>100 && mouseY<170)){
 state = "profile";
 }
 //////////////////////////////////////////////////
