@@ -92,7 +92,7 @@ if (state == "hell"){
        y = y-10;
        println("timer 1 is triggered");
     if (currentTime-restart>timer2){
-       img=loadImage("comment1.jpg");
+       img=loadImage("comment.jpg");
        image(img, 0, 0);
        println("timer 2 is triggered");
     if (currentTime-restart>timer3){
